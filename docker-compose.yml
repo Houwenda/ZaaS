@@ -1,0 +1,13 @@
+version: "3"
+services:
+    zaas:
+        build: ./
+        volumes:
+            - "./config/zeek/site:/usr/local/zeek/share/zeek/site:ro"
+            - "/tmp/zeek:/var/log/zeek"
+            - "/tmp/pcap:/pcap"
+            - "/tmp/zeek/extracted:/opt/zeek/extracted"
+            - "./config/ZaaS.yml:/etc/ZaaS/ZaaS.yml"
+            
+        ports:
+            - "10004:8000" # restful api

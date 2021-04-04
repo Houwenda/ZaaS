@@ -1,0 +1,17 @@
+log:
+  path: "/tmp/ZaaS.log"
+  level: "debug"
+server:
+  rest_api_ip: "0.0.0.0" # listen on ip addr
+  rest_api_port: 8000 # port of rest api
+  rest_api_endpoint: "test/secret/endpoint" # endpoint of rest api
+zeek:
+  log_dir: "/var/log/zeek"
+  pcap_dir: "/pcap"
+  extracted_file_dir: "/opt/zeek/extracted" # local extracted files
+seaweedfs: # seaweedfs filer
+  address: "0.0.0.0:8888" # <ip/domain>:<port>
+  username: "" # basic auth username
+  password: "" # basic auth password
+  extracted_file_dir: "/analyzed" # remote extracted files
+  retries: 3
