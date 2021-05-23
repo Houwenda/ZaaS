@@ -30,6 +30,7 @@ func (c *Client) DownloadAndExtract(filePath string) error {
 	if len(filePath) > 0 && string(filePath[0]) != "/" {
 		filePath = "/" + filePath
 	}
+	log.Println("http://" + c.conf.SeaweedfsConf.Addr + filePath)
 	getRequest, err := http.NewRequest("GET", "http://"+c.conf.SeaweedfsConf.Addr+filePath, nil)
 	if err != nil {
 		return err
@@ -176,5 +177,6 @@ func (c *Client) upload(rawPath, localPath string) error {
 	if retries == 0 {
 		return err
 	}
+	log.Println("extracted file uploaded")
 	return nil
 }

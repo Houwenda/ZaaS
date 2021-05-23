@@ -95,6 +95,8 @@ func restHandler(w http.ResponseWriter, r *http.Request) {
 		log.Println("missing parameter: path")
 		w.Write([]byte("missing parameter"))
 	}
+
+	w.Write([]byte("zaas processing"))
 	for _, filePath := range filePaths {
 		fmt.Println("path:", filePath)
 		err := Filer.DownloadAndExtract(filePath)
